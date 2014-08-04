@@ -1,0 +1,15 @@
+<?xml version="1.0" ?><xliff version="1.0">
+  <file original="global" source-language="en_US" target="fi" datatype="plaintext">
+    <body>
+      <trans-unit id="1">
+        <source>Application Name</source>
+        <target>Sovelluksen nimi</target>
+        <note>This text is shown in the start screen of the application. Keep it short.</note>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Home</source>
+        <target>Koti</target>
+        <note>This is the text displayed in the link that takes the user to the home page.</note>
+      </trans-unit>
+    </body>
+  </file></xliff>

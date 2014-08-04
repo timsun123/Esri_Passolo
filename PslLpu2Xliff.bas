@@ -16,15 +16,40 @@ Dim Lang As String
 Dim trn As PslTransList
 Dim i As Long
 
-Dim fso, MyFile, FileName
+Dim fso, fso1, MyFile, FileName, f, f1
+Dim Path As String
+Dim Path1 As String
+
+Set fso = CreateObject("Scripting.FileSystemObject")
+
+    Path = prj.Location + "\" + prj.Name
+
+    If (fso.FolderExists(Path)) = False Then
+
+    Set f = fso.CreateFolder(Path)
+
+    End If
+
 
 For Each trn In prj.TransLists
 
-    Set fso = CreateObject("Scripting.FileSystemObject")
+    If StrComp(Lang, trn.Language.LangCode) <> 0 Then
 
     Lang = trn.Language.LangCode
 
-    FileName = prj.Location + "\" + prj.Name + "_" + Lang + "_" + trn.Title + ".xliff"
+    Path = prj.Location + "\" + prj.Name + "\" + Lang
+
+      Set fso1 = CreateObject("Scripting.FileSystemObject")
+
+        If (fso1.FolderExists(Path)) = False Then
+
+           Set f1 = fso1.CreateFolder(Path)
+
+      End If
+
+    End If
+
+    FileName = Path + "\" + trn.Title + ".xliff"
 
     Set MyFile = fso.OpenTextFile(FileName, 2, True)
 
@@ -62,3 +87,12 @@ Next trn
 MsgBox ("Successfully exported Xliff to the same folder which contains the lpu file!")
 
 End Sub
+
+Function CreateFolder
+
+
+
+End Function
+
+
+
